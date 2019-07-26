@@ -1,0 +1,10 @@
+<div class="jumbotron">
+    <p>To delete a product, Qty must be <span style="text-decoration: underline">0</span>.</p>
+    <h2>Product Details</h2>
+    <p>p_id: {{pro?.p_id}}</p>
+    <h2>Name: {{pro?.name}}</h2>
+    <h2>Qty: {{pro?.qty}}</h2>
+    <h2>Price: {{pro?.price}}</h2>
+    <button class="btn btn-dark mr-3" [routerLink]="['']">Back</button>
+    <button class="btn btn-dark text-danger" (click)="delPro(pro.p_id)" [disabled]="isDisabled" >Delete</button>
+  </div>

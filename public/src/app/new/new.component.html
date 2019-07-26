@@ -1,0 +1,27 @@
+<div class="jumbotron">
+    <h2>New Product</h2>
+    <h3 class="text-danger">{{errors?.name?.message}}</h3>
+    <h3 class="text-danger">{{errors?.qty?.message}}</h3>
+    <h3 class="text-danger">{{errors?.price?.message}}</h3>
+    <form (submit)="postOnePro()">
+      <p> {{ newPro | json }} </p>
+      <!-- <p> {{ name?.error | json }} </p> -->
+      <div class="form-group">
+        <p class="text-danger" *ngIf="!name.pristine && name.errors">Name needs to be at least 3 characters</p>
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" name="name" #name="ngModel" required minlength="3" [(ngModel)]="newPro.name">
+      </div>
+      <div class="form-group">
+        <p class="text-danger" *ngIf="!qty.pristine && qty.errors">Qty cannot be lower than 0</p>
+        <label for="qty">Qty:</label>
+        <input type="number" class="form-control" #qty="ngModel" required min="0" name="qty" [(ngModel)]="newPro.qty">
+      </div>
+      <div class="form-group">
+        <p class="text-danger" *ngIf="!price.pristine && price.errors">Price cannot be lower than 0</p>
+        <label for="desc">Description:</label>
+        <input type="number" class="form-control" #price="ngModel" required min="0"  name="price" [(ngModel)]="newPro.price">
+      </div>
+      <button type="submit" class="btn btn-dark mr-3">Submit</button>
+      <button [routerLink]="['']" class="btn btn-dark">Cancel</button>
+    </form>
+  </div>

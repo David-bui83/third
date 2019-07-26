@@ -1,0 +1,27 @@
+<div class="jumbotron">
+    <h2>Update Product</h2>
+    <h3 class="text-danger">{{errors?.name?.message}}</h3>
+    <h3 class="text-danger">{{errors?.qty?.message}}</h3>
+    <h3 class="text-danger">{{errors?.price?.message}}</h3>
+    <form (submit)="updateOnePro(pro._id)">
+      <p> {{ pro | json }} </p>
+      <!-- <p> {{ name?.error | json }} </p> -->
+      <div class="form-group">
+        <p class="text-danger" *ngIf="!name.pristine && name.errors">Name needs to be at least 3 characters</p>
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" name="name" #name="ngModel" required minlength="3" [(ngModel)]="pro.name" value="{{pro.name}}">
+      </div>
+      <div class="form-group">
+        <p class="text-danger" *ngIf="!qty.pristine && qty.errors">Qty cannot be lower than 0</p>
+        <label for="qty">Qty:</label>
+        <input type="number" class="form-control" #qty="ngModel" required min="0" name="qty" [(ngModel)]="pro.qty"  value="{{pro.qty}}">
+      </div>
+      <div class="form-group">
+        <p class="text-danger" *ngIf="!price.pristine && price.errors">Price cannot be lower than 0</p>
+        <label for="desc">Description:</label>
+        <input type="number" class="form-control" #price="ngModel" required min="0"  name="price" [(ngModel)]="pro.price"  value="{{pro.price}}">
+      </div>
+      <a class="btn btn-dark mr-3 text-white"(click)="reload()">RESET</a>
+      <button *ngIf="!name.pristine || !price.pristine || !qty.pristine" type="submit" class="btn btn-dark " [disabled]="isDisabled">UPDATE</button>
+    </form>
+  </div>

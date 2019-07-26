@@ -1,0 +1,28 @@
+{
+  "name": "third",
+  "version": "1.0.0",
+  "description": "third attempt",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/David-bui83/third.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/David-bui83/third/issues"
+  },
+  "homepage": "https://github.com/David-bui83/third#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.6.6",
+    "mongoose-auto-increment": "^5.0.1",
+    "mongoose-unique-validator": "^2.0.3",
+    "path": "^0.12.7"
+  }
+}
